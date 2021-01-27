@@ -14,3 +14,14 @@ kind create cluster --name=k8s-example
 ```shell
 kubectl cluster-info --context kind-k8s-example
 ```
+
+## Creating node app
+
+```shell
+docker run --rm -it -v $PWD:/app -w /app node npm init
+
+docker run --rm -it -v $PWD:/app -w /app node npm install express --save
+
+docker run --rm -it -v $PWD:/app -p 80:3000 -w /app node index
+```
+
